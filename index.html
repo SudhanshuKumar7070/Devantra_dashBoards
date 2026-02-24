@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevAntra ERP – Member Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ INLINE SVG SPRITE ═══ -->
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+<defs>
+  <symbol id="ic-layout" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="ic-home" viewBox="0 0 24 24"><path d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1H15v-7H9v7H4a1 1 0 0 1-1-1V10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-tasks" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-folder" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="ic-bell" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 0 1-3.46 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-bar-chart" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-chevron-down" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-chevron-right" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-printer" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="6" y="14" width="12" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="ic-dollar" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-refresh" viewBox="0 0 24 24"><path d="M23 4v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 20v-6h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-sliders" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="6" r="2" fill="currentColor"/><circle cx="16" cy="12" r="2" fill="currentColor"/><circle cx="8" cy="18" r="2" fill="currentColor"/></symbol>
+  <symbol id="ic-dots" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/><circle cx="12" cy="19" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="ic-check-circle" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-cal-dot" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="16" r="1.8" fill="currentColor"/></symbol>
+  <symbol id="ic-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M23 21v-2a4 4 0 0 0-3-3.87" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 3.13a4 4 0 0 1 0 7.75" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><rect x="1" y="5" width="15" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="ic-cal-leave" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/><polyline points="9 16 11 18 15 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-submit" viewBox="0 0 24 24"><path d="M22 2L11 13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 2l-7 20-4-9-9-4 20-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 8 12 3 7 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="12" y1="3" x2="12" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-headset" viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="22" x2="4" y2="15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-folder-plus" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><line x1="12" y1="11" x2="12" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="9" y1="14" x2="15" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-x" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="16" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="8" x2="12.01" y2="8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-trending-down" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="17 18 23 18 23 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-alert" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><line x1="12" y1="8" x2="12" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></symbol>
+  <symbol id="ic-play" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-clock-ext" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="ic-paperclip" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a4.5 4.5 0 0 1-6.36-6.36l9.19-9.19a3 3 0 0 1 4.24 4.24l-9.2 9.19a1.5 1.5 0 0 1-2.12-2.12l8.49-8.48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="ic-note" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</defs>
+</svg>
+
+<!-- ─── TOP BAR ─── -->
+<header class="topbar">
+  <div class="topbar-left">
+    <div class="logo-wrap">
+      <img src="./Black_bg_devantra_logo.png" alt="DevAntra">
+    </div>
+    <span class="logo-erp">ERP</span>
+    <span class="topbar-divider">|</span>
+    <span class="topbar-title">Member <strong>Dashboard</strong></span>
+  </div>
+  <div class="topbar-right">
+    <button class="topbar-icon-btn hamburger-btn" id="hamburgerBtn" onclick="toggleSidebar()" aria-label="Menu"><svg class="ib" width="22" height="22" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><line x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></button>
+    <button class="topbar-icon-btn"><svg class="ib" width="20" height="20"><use href="#ic-chat"/></svg></button>
+    <button class="topbar-icon-btn notif-btn"><svg class="ib" width="20" height="20"><use href="#ic-bell"/></svg><span class="notif-badge">2</span></button>
+    <button class="topbar-icon-btn notif-btn"><svg class="ib" width="20" height="20"><use href="#ic-settings"/></svg><span class="notif-badge alert">1</span></button>
+    <button class="topbar-icon-btn"><svg class="ib" width="20" height="20"><use href="#ic-send"/></svg></button>
+    <div class="user-profile">
+      <div class="avatar">AS</div>
+      <div class="user-info"><span class="user-name">Amit Sharma</span><span class="user-role">Intern</span></div>
+      <svg class="ib chevron-ico" width="14" height="14"><use href="#ic-chevron-down"/></svg>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <!-- Mobile sidebar backdrop -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="closeSidebar()"></div>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="mainSidebar">
+    <div class="sidebar-mobile-header">
+      <span class="sidebar-mobile-title">Menu</span>
+      <button class="sidebar-close-btn" onclick="closeSidebar()"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="nav-item" data-page="d0"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-layout"/></svg>Dashboard</a>
+      <a class="nav-item active" data-page="d1"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-home"/></svg>Dashboard</a>
+      <a class="nav-item" data-page="tasks" onclick="openTasksModal()"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-tasks"/></svg>Tasks</a>
+      <a class="nav-item" data-page="projects"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-folder"/></svg>Projects</a>
+      <a class="nav-item" data-page="attendance"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-calendar"/></svg>Attendance</a>
+      <a class="nav-item" data-page="announce"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-bell"/></svg>Announcements</a>
+      <a class="nav-item" data-page="docs"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-file"/></svg>Documents</a>
+      <a class="nav-item" data-page="perf"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-bar-chart"/></svg>Performance</a>
+      <a class="nav-item" data-page="help"><svg class="ib nav-svg" width="18" height="18"><use href="#ic-help"/></svg>Help Desk</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+    <!-- Welcome -->
+    <div class="welcome-header">
+      <div class="welcome-left">
+        <h1 class="welcome-title">Welcome back, <strong>Amit Sharma!</strong></h1>
+        <p class="welcome-sub">Last login: 25 Apr 2024, 10:15 AM &nbsp;•&nbsp; Location: Gurugram, <strong>India</strong></p>
+      </div>
+      <div class="welcome-icons">
+        <button class="wi-btn"><svg class="ib" width="18" height="18"><use href="#ic-chat"/></svg></button>
+        <button class="wi-btn notif-btn"><svg class="ib" width="18" height="18"><use href="#ic-bell"/></svg><span class="notif-badge">2</span></button>
+        <button class="wi-btn notif-btn"><svg class="ib" width="18" height="18"><use href="#ic-settings"/></svg><span class="notif-badge alert">1</span></button>
+        <button class="wi-btn"><svg class="ib" width="18" height="18"><use href="#ic-send"/></svg></button>
+        <span class="wi-label">Nxzs<br><small>Th42b</small></span>
+      </div>
+    </div>
+
+    <!-- Grid -->
+    <div class="dashboard-grid">
+      <!-- LEFT -->
+      <div class="col-left">
+        <!-- Announcements -->
+        <div class="card card-announcements">
+          <div class="card-header">
+            <h3>Announcements</h3>
+            <div class="card-header-actions">
+              <button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-printer"/></svg></button>
+              <button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-dollar"/></svg></button>
+            </div>
+          </div>
+          <div id="announcementArea"></div>
+        </div>
+        <!-- My Tasks -->
+        <div class="card card-tasks">
+          <div class="tasks-header">
+            <h3>My Tasks</h3>
+            <div class="task-filters" id="taskFilters">
+              <button class="tf active" data-filter="Pending">Pending</button>
+              <button class="tf" data-filter="In Progress">In Progress</button>
+              <button class="tf" data-filter="Completed">Completed</button>
+              <button class="tf" data-filter="Overdue">Overdue</button>
+            </div>
+          </div>
+          <div class="tasks-list" id="tasksList"></div>
+          <div class="tasks-footer"><a class="view-all-link" onclick="openTasksModal()">View All Tasks <svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg></a></div>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="col-right">
+        <!-- Summary -->
+        <div class="card card-summary">
+          <div class="card-header">
+            <h3>Today's Summary</h3>
+            <div class="card-header-actions">
+              <button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-refresh"/></svg></button>
+              <button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-sliders"/></svg></button>
+            </div>
+          </div>
+          <div class="summary-grid" id="summaryGrid"></div>
+        </div>
+        <!-- Attendance + Performance -->
+        <div class="mid-row">
+          <div class="card card-attendance">
+            <h4>Attendance</h4>
+            <div class="att-row"><div class="att-icon-wrap att-green"><svg class="ib" width="15" height="15"><use href="#ic-check-circle"/></svg></div><span class="att-label">Checked In</span><span class="att-value">10:10 AM</span></div>
+            <div class="att-row"><div class="att-icon-wrap att-blue"><svg class="ib" width="15" height="15"><use href="#ic-clock"/></svg></div><span class="att-label">Hours Worked</span><span class="att-value">3h 20m</span></div>
+            <div class="att-row"><div class="att-icon-wrap att-amber"><svg class="ib" width="15" height="15"><use href="#ic-cal-dot"/></svg></div><span class="att-label">Leave Balance</span><span class="att-value">0.5d</span></div>
+            <div class="att-progress-bar"><div class="att-progress-fill" style="width:70%"></div></div>
+          </div>
+          <div class="card card-performance">
+            <h4>Performance</h4>
+            <div class="perf-circles">
+              <div class="perf-circle">
+                <svg viewBox="0 0 80 80"><defs><linearGradient id="gB"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#3b82f6"/></linearGradient></defs><circle cx="40" cy="40" r="32" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#gB)" stroke-width="7" stroke-dasharray="201.06" stroke-dashoffset="30.16" stroke-linecap="round" transform="rotate(-90 40 40)"/></svg>
+                <div class="perf-inner"><span class="perf-pct">85%</span><span class="perf-label">Task Completed</span></div>
+              </div>
+              <div class="perf-circle">
+                <svg viewBox="0 0 80 80"><defs><linearGradient id="gG"><stop offset="0%" stop-color="#34d399"/><stop offset="100%" stop-color="#10b981"/></linearGradient></defs><circle cx="40" cy="40" r="32" fill="none" stroke="#e5e7eb" stroke-width="7"/><circle cx="40" cy="40" r="32" fill="none" stroke="url(#gG)" stroke-width="7" stroke-dasharray="201.06" stroke-dashoffset="20.11" stroke-linecap="round" transform="rotate(-90 40 40)"/></svg>
+                <div class="perf-inner"><span class="perf-pct">90%</span><span class="perf-label">Attendance</span></div>
+              </div>
+            </div>
+            <div class="perf-stars"><span class="stars">★★★★</span><span class="star-half">☆</span><span class="perf-score">4.6</span><span class="perf-note">Prep dp qlr<br>•This month</span></div>
+          </div>
+        </div>
+        <!-- Projects + Meetings -->
+        <div class="bot-row">
+          <div class="card card-projects">
+            <div class="card-header"><h4>Projects Overview</h4><button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-dots"/></svg></button></div>
+            <div id="projectsList"></div>
+            <a class="view-all-link">View Details <svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg></a>
+          </div>
+          <div class="card card-meetings">
+            <div class="card-header"><h4>Upcoming Meetings</h4><button class="icon-btn"><svg class="ib" width="16" height="16"><use href="#ic-dots"/></svg></button></div>
+            <div id="meetingsList"></div>
+            <a class="view-all-link">View Calendar <svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions-bar">
+      <button class="qa-btn qa-blue" onclick="openLeaveModal()"><span class="qa-icon"><svg class="ib" width="18" height="18"><use href="#ic-cal-leave"/></svg></span>Request Leave</button>
+      <button class="qa-btn qa-orange" onclick="openSubmitTaskModal()"><span class="qa-icon"><svg class="ib" width="18" height="18"><use href="#ic-submit"/></svg></span>Submit Task</button>
+      <button class="qa-btn qa-green" onclick="openUploadModal()"><span class="qa-icon"><svg class="ib" width="18" height="18"><use href="#ic-upload"/></svg></span>Upload Document</button>
+      <button class="qa-btn qa-red" onclick="openHelpDeskModal()"><span class="qa-icon"><svg class="ib" width="18" height="18"><use href="#ic-headset"/></svg></span>Help Desk</button>
+      <div class="qa-section-label">Quick Actions</div>
+    </div>
+  </main>
+</div>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="taskDetailModal"><div class="modal modal-lg"><div class="modal-header"><h2 id="modalTaskTitle"></h2><button class="modal-close" onclick="closeModal('taskDetailModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body" id="modalTaskBody"></div></div></div>
+<div class="modal-overlay" id="allTasksModal"><div class="modal modal-lg"><div class="modal-header"><h2>All Tasks</h2><button class="modal-close" onclick="closeModal('allTasksModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><div class="modal-filters" id="modalFilters"><button class="tf active" data-mfilter="All">All</button><button class="tf" data-mfilter="Pending">Pending</button><button class="tf" data-mfilter="In Progress">In Progress</button><button class="tf" data-mfilter="Under Review">Under Review</button><button class="tf" data-mfilter="Completed">Completed</button><button class="tf" data-mfilter="Overdue">Overdue</button></div><div id="allTasksList" class="tasks-list"></div></div></div></div>
+<div class="modal-overlay" id="submitTaskModal"><div class="modal"><div class="modal-header"><h2>Submit Task</h2><button class="modal-close" onclick="closeModal('submitTaskModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Task Title</label><input type="text" id="stTitle" placeholder="e.g. Prepare Project Presentation"><label>Project</label><select id="stProject"><option value="AI-Based Attendance System">AI-Based Attendance System</option><option value="Employee Portal Redesign">Employee Portal Redesign</option><option value="Daily Ops">Daily Ops</option></select><label>Category</label><select id="stCategory"><option>Development</option><option>Documentation</option><option>Research</option><option>Testing</option><option>Presentation</option><option>Daily Report</option></select><label>Priority</label><select id="stPriority"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select><label>Due Date</label><input type="date" id="stDue"><label>Description</label><textarea id="stDesc" rows="3" placeholder="Clear instructions…"></textarea><label>Assigned To</label><input type="text" id="stAssigned" placeholder="Member name"><button class="btn-primary" onclick="submitNewTask()">Create &amp; Assign Task</button></div></div></div>
+<div class="modal-overlay" id="leaveModal"><div class="modal"><div class="modal-header"><h2>Request Leave</h2><button class="modal-close" onclick="closeModal('leaveModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Leave Type</label><select><option>Casual Leave</option><option>Sick Leave</option><option>Annual Leave</option></select><label>From Date</label><input type="date"><label>To Date</label><input type="date"><label>Reason</label><textarea rows="3" placeholder="Please provide reason…"></textarea><button class="btn-primary" onclick="closeModal('leaveModal');showToast('Leave request submitted','success')">Submit Request</button></div></div></div>
+<div class="modal-overlay" id="uploadModal"><div class="modal"><div class="modal-header"><h2>Upload Document</h2><button class="modal-close" onclick="closeModal('uploadModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Document Type</label><select><option>Report</option><option>Code File</option><option>Screenshot</option><option>Other</option></select><label>Related Task</label><select id="uploadTask"></select><label>File</label><div class="file-drop" onclick="document.getElementById('fileInput').click()"><svg class="ib file-drop-icon" width="36" height="36"><use href="#ic-folder-plus"/></svg><span>Click or drag file here</span><input type="file" id="fileInput" style="display:none"></div><label>Notes</label><textarea rows="2" placeholder="Optional notes…"></textarea><button class="btn-primary" onclick="closeModal('uploadModal');showToast('Document uploaded','success')">Upload</button></div></div></div>
+<div class="modal-overlay" id="helpDeskModal"><div class="modal"><div class="modal-header"><h2>Help Desk</h2><button class="modal-close" onclick="closeModal('helpDeskModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Issue Type</label><select><option>Technical Issue</option><option>Access Problem</option><option>Feature Request</option><option>Other</option></select><label>Subject</label><input type="text" placeholder="Brief subject…"><label>Description</label><textarea rows="4" placeholder="Describe the issue…"></textarea><label>Priority</label><select><option>Low</option><option>Medium</option><option>High</option></select><button class="btn-primary" onclick="closeModal('helpDeskModal');showToast('Ticket created','success')">Raise Ticket</button></div></div></div>
+<div class="modal-overlay" id="extensionModal"><div class="modal"><div class="modal-header"><h2>Request Deadline Extension</h2><button class="modal-close" onclick="closeModal('extensionModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Task</label><input type="text" id="extTaskTitle" readonly><label>Current Deadline</label><input type="text" id="extCurrentDeadline" readonly><label>New Requested Deadline</label><input type="date" id="extNewDate"><label>Reason (Mandatory)</label><textarea id="extReason" rows="3" placeholder="Explain why…"></textarea><button class="btn-primary" onclick="submitExtension()">Submit Extension Request</button></div></div></div>
+<div class="modal-overlay" id="commentModal"><div class="modal"><div class="modal-header"><h2>Add Progress Note</h2><button class="modal-close" onclick="closeModal('commentModal')"><svg class="ib" width="18" height="18"><use href="#ic-x"/></svg></button></div><div class="modal-body"><label>Task</label><input type="text" id="cmtTaskTitle" readonly><label>Progress Note</label><textarea id="cmtNote" rows="4" placeholder="What have you accomplished?"></textarea><label>Upload File (optional)</label><div class="file-drop" onclick="document.getElementById('cmtFile').click()"><svg class="ib file-drop-icon" width="36" height="36"><use href="#ic-folder-plus"/></svg><span>Click or drag file here</span><input type="file" id="cmtFile" style="display:none"></div><button class="btn-primary" onclick="submitComment()">Save Note</button></div></div></div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="script.js"></script>
+</body>
+</html>
