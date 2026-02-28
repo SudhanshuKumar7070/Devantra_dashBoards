@@ -149,6 +149,7 @@ function renderTasks(){
 }
 
 // ─── Summary ────────────────────────────────────────
+// fetch();
 function renderSummary(){
   const dueToday = tasks.filter(t=>isToday(t.due)||t.due==="today").length + 1;
   const overdue  = tasks.filter(t=>isOverdue(t)).length;

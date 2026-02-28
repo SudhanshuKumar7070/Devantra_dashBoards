@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVANTRA ERP | Manager Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Top Header -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">
+        <img src="Black_bg_devantra_logo.png" alt="DEVANTRA Logo" style="height: 38px; object-fit: contain;">
+      </div>
+      <span class="header-divider"><b>|</b></span>
+      <span class="header-title"><b>ERP | Manager Dashboard</b></span>
+    </div>
+    <div class="header-right">
+      <button class="icon-btn" title="Search"><i class="fas fa-search"></i></button>
+      <button class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+
+      <div class="user-profile">
+        <img src="" alt="" class="avatar avatar-sm user-avatar">
+        <div class="user-info">
+          <span class="user-name"></span>
+          <span class="user-role"></span>
+        </div>
+      </div>
+      <button class="icon-btn" title="Settings"><i class="fas fa-cog"></i></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <nav class="sidebar-nav">
+        <!-- Rendered by script.js from AppData.navItems -->
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="welcome-row">
+        <div class="welcome-section">
+          <h1 class="welcome-title"></h1>
+          <p class="welcome-meta"></p>
+        </div>
+        <button id="btnCreateMember" class="btn btn-primary">
+          Create New Member
+        </button>
+      </div>
+
+      <!-- Stats Cards — rendered by script.js from AppData.stats & AppData.rating -->
+      <div class="stats-row"></div>
+
+      <!-- Action Buttons — rendered by script.js from AppData.actionButtons -->
+      <div class="action-buttons-row"></div>
+
+      <!-- Main Grid -->
+      <div class="dashboard-grid">
+
+        <!-- Left Column -->
+        <div class="panel team-members-panel">
+          <div class="panel-header">
+            <h3>Team Members</h3>
+            <button class="icon-btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.teamSummary -->
+          <div class="team-summary-stats"></div>
+
+          <div class="panel-subheader">
+            <h4>Team Members</h4>
+            <a href="#" class="link">View All</a>
+          </div>
+
+          <!-- Rendered by script.js from AppData.teamMembers -->
+          <ul class="team-list"></ul>
+
+          <div class="panel-footer-right">
+            <a href="#" class="link link-bottom">View All <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="panel leave-requests-panel">
+          <div class="panel-header">
+            <h3>Leave &amp; Approval Requests</h3>
+            <button class="icon-btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.leaveRequests -->
+          <ul class="leave-list-boxes"></ul>
+        </div>
+
+        <!-- Middle Column -->
+        <div class="panel todays-summary-panel">
+          <div class="panel-header">
+            <h3>Today's Summary</h3>
+            <button class="icon-btn-sm"><i class="fas fa-database"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.todaySummary -->
+          <div class="summary-pills"></div>
+        </div>
+
+        <div class="panel activity-panel">
+          <div class="panel-header">
+            <h3>Recent Team Activity</h3>
+            <button class="icon-btn-sm"><i class="fas fa-sync-alt icon-grey"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.recentActivity -->
+          <ul class="activity-list"></ul>
+          <div class="panel-footer-right">
+            <a href="#" class="link link-bottom">View All Tasks <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="panel quick-actions-panel">
+          <div class="panel-header">
+            <h3>Quick Actions</h3>
+          </div>
+          <!-- Rendered by script.js from AppData.quickActions -->
+          <div class="quick-actions-wrap"></div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="panel active-tasks-panel">
+          <div class="panel-header">
+            <h3>Active Tasks</h3>
+            <button class="icon-btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.activeTasks -->
+          <ul class="task-list"></ul>
+          <div class="panel-footer-right">
+            <a href="#" class="link link-bottom">View All Tasks <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+        <div class="panel progress-panel">
+          <div class="panel-header">
+            <h3>Leave &amp; Approval Requests</h3>
+            <button class="icon-btn-sm"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <!-- Rendered by script.js from AppData.progress -->
+          <div class="progress-circles"></div>
+          <!-- Rendered by script.js from AppData.progressRating -->
+          <div class="panel-rating-new"></div>
+          <div class="panel-footer-right">
+            <a href="#" class="link link-bottom">View All Tasks <i class="fas fa-chevron-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Create Member Modal Overlay -->
+  <div id="createMemberModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create New Member</h2>
+        <button type="button" class="close-modal-btn">&times;</button>
+      </div>
+      <form id="createMemberForm">
+        <div class="form-group">
+          <label for="memberName">Full Name *</label>
+          <input type="text" id="memberName" name="name" required placeholder="e.g. John Doe">
+        </div>
+        <div class="form-group">
+          <label for="memberRole">Designation / Role *</label>
+          <input type="text" id="memberRole" name="role" required placeholder="e.g. Developer">
+        </div>
+        <div class="form-group">
+          <label for="memberTeam">Team *</label>
+          <input type="text" id="memberTeam" name="team" required placeholder="e.g. Engineering">
+        </div>
+        <div class="form-group">
+          <label for="memberStatus">Status</label>
+          <select id="memberStatus" name="status">
+            <option value="present">Present</option>
+            <option value="leave">On Leave</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel-modal-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Register Member</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Assign Task Modal -->
+  <div id="assignTaskModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Assign Task</h2>
+        <button type="button" class="close-modal-btn">&times;</button>
+      </div>
+      <form id="assignTaskForm">
+        <div class="form-group">
+          <label for="taskName">Task Name *</label>
+          <input type="text" id="taskName" required placeholder="e.g. Design Homepage">
+        </div>
+        <div class="form-group">
+          <label for="taskAssignee">Assignee *</label>
+          <input type="text" id="taskAssignee" required placeholder="e.g. Aman Joshi">
+        </div>
+        <div class="form-group">
+          <label for="taskDeadline">Deadline *</label>
+          <input type="date" id="taskDeadline" required>
+        </div>
+        <div class="form-group">
+          <label for="taskStart">Start Date/Time</label>
+          <input type="datetime-local" id="taskStart">
+        </div>
+        <div class="form-group">
+          <label for="taskTotalTime">Total Time Assigned (Hours)</label>
+          <input type="number" id="taskTotalTime" placeholder="e.g. 5" min="1">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel-modal-btn">Cancel</button>
+          <button type="submit" class="btn btn-blue">Assign Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Create Announcement Modal -->
+  <div id="createAnnounModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Create Announcement</h2>
+        <button type="button" class="close-modal-btn">&times;</button>
+      </div>
+      <form id="createAnnounForm">
+        <div class="form-group">
+          <label for="announTitle">Announcement Title *</label>
+          <input type="text" id="announTitle" required placeholder="e.g. Project Launch">
+        </div>
+        <div class="form-group">
+          <label for="announDate">Date *</label>
+          <input type="date" id="announDate" required>
+        </div>
+        <div class="form-group">
+          <label for="announDesc">Description / Notice</label>
+          <textarea id="announDesc" class="form-textarea" rows="3" placeholder="Enter details..."></textarea>
+        </div>
+        <div class="form-group">
+          <label for="announWork">Work Type *</label>
+          <select id="announWork" required>
+            <option value="General">General</option>
+            <option value="Project">Project Update</option>
+            <option value="Policy">Policy Change</option>
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel-modal-btn">Cancel</button>
+          <button type="submit" class="btn btn-blue">Create Announcement</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Approve Requests Modal -->
+  <div id="approveReqModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Approve Requests</h2>
+        <button type="button" class="close-modal-btn">&times;</button>
+      </div>
+      <form id="approveReqForm">
+        <p style="margin-bottom: 20px; color: var(--text-secondary); font-size: 0.9rem;">
+          You are about to approve 3 pending requests automatically.
+        </p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary cancel-modal-btn">Cancel</button>
+          <button type="submit" class="btn " style="background:#f59e0b; color: white;">Approve All</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- View Reports Modal -->
+  <div id="viewReportsModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2>Task Reports</h2>
+        <button type="button" class="close-modal-btn">&times;</button>
+      </div>
+      <div id="reportListContainer">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary cancel-modal-btn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- data.js MUST load before script.js -->
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
