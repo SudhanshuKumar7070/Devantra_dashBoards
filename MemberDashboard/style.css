@@ -89,8 +89,10 @@ textarea {
   gap: 4px;
 }
 .logo-wrap img {
-  height: 30px;
-  width: 100px;
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 6px;
 }
 .logo-hex {
   display: block;

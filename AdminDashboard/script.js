@@ -28,16 +28,15 @@ const dashboardData = {
   ],
 
   navItems: [
-    { label: "Dashboard", icon: "dashboard", active: false },
-    { label: "Dashboard", icon: "home", active: true },
-    { label: "Members", icon: "users", active: false },
-    { label: "Attendance", icon: "calendar", active: false },
-    { label: "Projects", icon: "folder", active: false },
-    { label: "Announcements", icon: "bell", active: false },
-    { label: "Requests", icon: "inbox", active: false },
-    { label: "Reports", icon: "bar-chart", active: false },
-    { label: "Settings", icon: "settings", active: false },
-    { label: "Help Desk", icon: "help-circle", active: false }
+    { label: "Dashboard", icon: "ic-home", active: true },
+    { label: "Members", icon: "ic-users", active: false },
+    { label: "Attendance", icon: "ic-calendar", active: false },
+    { label: "Projects", icon: "ic-folder", active: false },
+    { label: "Announcements", icon: "ic-bell", active: false },
+    { label: "Requests", icon: "ic-inbox", active: false },
+    { label: "Reports", icon: "ic-bar-chart", active: false },
+    { label: "Settings", icon: "ic-settings", active: false },
+    { label: "Help Desk", icon: "ic-help", active: false }
   ],
 
   memberRequests: [
@@ -177,20 +176,12 @@ const dashboardData = {
 };
 
 /* ===========================
-   ICONS SVG HELPERS
+   ICONS — SVG sprite helper
 =========================== */
-const icons = {
-  dashboard: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
-  home: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
-  users: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-  calendar: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>`,
-  folder: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>`,
-  bell: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>`,
-  inbox: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>`,
-  "bar-chart": `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>`,
-  settings: `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>`,
-  "help-circle": `<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>`
-};
+function svgIcon(id, w, h) {
+  w = w || 18; h = h || 18;
+  return `<svg class="ib nav-svg" width="${w}" height="${h}"><use href="#${id}"/></svg>`;
+}
 
 /* ===========================
    RENDER FUNCTIONS
@@ -199,15 +190,14 @@ const icons = {
 // Render sidebar navigation
 function renderNav() {
   const nav = document.getElementById('sidebarNav');
-  // Remove first duplicate Dashboard
-  const navItems = dashboardData.navItems.slice(1);
-  navItems.forEach(item => {
-    const el = document.createElement('div');
+  dashboardData.navItems.forEach(item => {
+    const el = document.createElement('a');
     el.className = `nav-item${item.active ? ' active' : ''}`;
-    el.innerHTML = `
-      <span class="nav-icon">${icons[item.icon] || icons['home']}</span>
-      <span>${item.label}</span>
-    `;
+    el.innerHTML = `${svgIcon(item.icon)}<span>${item.label}</span>`;
+    el.addEventListener('click', () => {
+      nav.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      el.classList.add('active');
+    });
     nav.appendChild(el);
   });
 }
@@ -221,7 +211,11 @@ function renderWelcome() {
     <span class="sep-bar">|</span> 
     Location: <span class="location">${user.location}</span>
   `;
-  document.getElementById('createMemberBtn').textContent = '+ Create New Member';
+  const createBtn = document.getElementById('createMemberBtn');
+  if (createBtn) {
+    createBtn.textContent = '+ Create New Member';
+    createBtn.addEventListener('click', () => openModal('createMemberModal'));
+  }
 }
 
 // Mini bar chart helper
@@ -237,6 +231,7 @@ function renderMiniChart(bars, color) {
 // Render stats cards
 function renderStats() {
   const container = document.getElementById('statsRow');
+  container.innerHTML = '';
   // Use only 6 cards
   const statsToShow = [
     dashboardData.stats[0], // Active Members
@@ -278,9 +273,20 @@ function renderStats() {
   });
 }
 
-// Render action buttons
+// Render action buttons — wired to modals
 function renderActionButtons() {
   const container = document.getElementById('actionButtons');
+  const buttonMap = {
+    'Add Task': () => openModal('addTaskModal'),
+    'Post Announcement': () => openModal('announcementModal'),
+    'Generate Report': () => openModal('reportModal'),
+    'View Activity Log': () => {
+      const el = document.getElementById('recentActivitiesContent');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      showToast('Scrolled to Activity Log', 'success');
+    }
+  };
+
   dashboardData.actionButtons.forEach(btn => {
     const el = document.createElement('button');
     el.className = 'action-btn';
@@ -291,13 +297,19 @@ function renderActionButtons() {
       </span>
       <span class="action-btn-arrow">›</span>
     `;
+    el.addEventListener('click', () => {
+      const handler = buttonMap[btn.label];
+      if (handler) handler();
+      else showToast(`"${btn.label}" clicked`, 'success');
+    });
     container.appendChild(el);
   });
 }
 
-// Render new member requests
+// Render new member requests — with approve/reject/detail handlers
 function renderMemberRequests() {
   const container = document.getElementById('newMemberRequestsList');
+  container.innerHTML = '';
   dashboardData.memberRequests.forEach(m => {
     const badgeClass = m.status === 'approve' ? 'badge-approve' : 'badge-today';
     const badgeText = m.status === 'approve' ? 'Approve' : 'Today';
@@ -310,12 +322,18 @@ function renderMemberRequests() {
         <div class="member-role-sub">${m.role} · ${m.manager}</div>
       </div>
       <div class="member-actions">
-        <span class="badge ${badgeClass}">${badgeText}</span>
+        <span class="badge ${badgeClass} btn-approve-badge" data-id="${m.id}">${badgeText}</span>
         ${m.verified ? '<span class="badge badge-verified" style="font-size:10px;padding:2px 7px;">Verified</span>' : ''}
-        <span class="badge badge-reject">Reject</span>
-        <button class="chevron-btn">›</button>
+        <span class="badge badge-reject btn-reject-badge" data-id="${m.id}">Reject</span>
+        <button class="chevron-btn btn-member-detail" data-id="${m.id}">›</button>
       </div>
     `;
+    // Approve handler
+    el.querySelector('.btn-approve-badge').addEventListener('click', () => approveMember(m.id));
+    // Reject handler
+    el.querySelector('.btn-reject-badge').addEventListener('click', () => rejectMember(m.id));
+    // Detail handler
+    el.querySelector('.btn-member-detail').addEventListener('click', () => openMemberDetail(m.id));
     container.appendChild(el);
   });
 }
@@ -444,6 +462,8 @@ function renderTasks() {
       <td style="white-space:nowrap;font-size:12px;color:#475569;">${t.dueDate}</td>
       <td><span class="badge ${t.statusClass}">${t.status}</span></td>
     `;
+    tr.style.cursor = 'pointer';
+    tr.addEventListener('click', () => openTaskDetail(t.id));
     tbody.appendChild(tr);
   });
 
@@ -452,6 +472,7 @@ function renderTasks() {
   viewAll.href = '#';
   viewAll.className = 'view-all-link';
   viewAll.textContent = 'View All ›';
+  viewAll.addEventListener('click', (e) => { e.preventDefault(); showToast('View All Tasks coming soon', 'success'); });
   container.appendChild(viewAll);
 }
 
@@ -514,6 +535,269 @@ function renderAnnouncements() {
     `;
     container.appendChild(el);
   });
+}
+
+/* ===========================
+   MODAL HELPERS
+=========================== */
+function openModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.add('open');
+}
+function closeModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) modal.classList.remove('open');
+}
+// Click outside modal to close
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('modal-overlay') && e.target.classList.contains('open')) {
+    e.target.classList.remove('open');
+  }
+});
+
+/* ===========================
+   TOAST NOTIFICATIONS
+=========================== */
+function showToast(msg, type) {
+  type = type || 'default';
+  const container = document.getElementById('toastContainer');
+  if (!container) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast ' + type;
+  const iconMap = { success: '✓', error: '✕', default: 'ℹ' };
+  toast.innerHTML = '<span class="toast-icon">' + (iconMap[type] || 'ℹ') + '</span><span>' + msg + '</span>';
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.classList.add('out');
+    setTimeout(() => toast.remove(), 300);
+  }, 2800);
+}
+
+/* ===========================
+   MEMBER APPROVE / REJECT
+=========================== */
+function approveMember(id) {
+  const m = dashboardData.memberRequests.find(x => x.id === id);
+  if (!m) return;
+  showToast('"' + m.name + '" has been approved!', 'success');
+  dashboardData.memberRequests = dashboardData.memberRequests.filter(x => x.id !== id);
+  renderMemberRequests();
+  // Update stat
+  const stat = dashboardData.stats.find(s => s.label === 'Active Members');
+  if (stat) { stat.value++; renderStats(); }
+}
+function rejectMember(id) {
+  const m = dashboardData.memberRequests.find(x => x.id === id);
+  if (!m) return;
+  showToast('Request from "' + m.name + '" rejected', 'error');
+  dashboardData.memberRequests = dashboardData.memberRequests.filter(x => x.id !== id);
+  renderMemberRequests();
+}
+
+/* ===========================
+   MEMBER DETAIL MODAL
+=========================== */
+function openMemberDetail(id) {
+  const m = dashboardData.memberRequests.find(x => x.id === id);
+  if (!m) return;
+  document.getElementById('mdTitle').textContent = m.name;
+  document.getElementById('mdBody').innerHTML = `
+    <div class="td-section">
+      <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+        <div class="member-avatar" style="background:${m.color};color:#fff;width:48px;height:48px;font-size:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600">${m.initials}</div>
+        <div>
+          <div style="font-size:16px;font-weight:600;color:#1e293b">${m.name}</div>
+          <div style="font-size:13px;color:#64748b">${m.role}</div>
+        </div>
+      </div>
+    </div>
+    <div class="td-section">
+      <h4>Details</h4>
+      <p><strong>Role:</strong> ${m.role}</p>
+      <p><strong>Manager:</strong> ${m.manager}</p>
+      <p><strong>Status:</strong> ${m.status === 'approve' ? 'Pending Approval' : 'Today'}</p>
+      <p><strong>Verified:</strong> ${m.verified ? 'Yes ✓' : 'No'}</p>
+    </div>
+    <div class="td-section">
+      <h4>Actions</h4>
+      <div class="td-actions">
+        <button class="btn-action-modal primary" onclick="approveMember(${m.id});closeModal('memberDetailModal')">✓ Approve</button>
+        <button class="btn-action-modal" onclick="rejectMember(${m.id});closeModal('memberDetailModal')">✕ Reject</button>
+      </div>
+    </div>
+  `;
+  openModal('memberDetailModal');
+}
+
+/* ===========================
+   TASK DETAIL MODAL
+=========================== */
+function openTaskDetail(id) {
+  const t = dashboardData.tasks.find(x => x.id === id);
+  if (!t) return;
+  document.getElementById('tdTitle').textContent = t.title + ' ' + t.subtitle;
+  document.getElementById('tdBody').innerHTML = `
+    <div class="td-section">
+      <div class="td-badges">
+        <span class="badge ${t.priorityClass}">${t.priority}</span>
+        <span class="badge ${t.statusClass}">${t.status}</span>
+      </div>
+    </div>
+    <div class="td-section">
+      <h4>Details</h4>
+      <p><strong>Task:</strong> ${t.title} — ${t.subtitle}</p>
+      <p><strong>Priority:</strong> ${t.priority}</p>
+      <p><strong>Due Date:</strong> ${t.dueDate}</p>
+      <p><strong>Status:</strong> ${t.status}</p>
+      <p><strong>Assigned To:</strong> ${t.initials}</p>
+    </div>
+    <div class="td-section">
+      <h4>Actions</h4>
+      <div class="td-actions">
+        <button class="btn-action-modal primary" onclick="markTaskComplete(${t.id})">✓ Mark Complete</button>
+        <button class="btn-action-modal" onclick="closeModal('taskDetailModal');showToast('Edit mode coming soon','success')">✎ Edit Task</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('tdFooter').innerHTML = '<button class="btn-secondary" onclick="closeModal(\'taskDetailModal\')">Close</button>';
+  openModal('taskDetailModal');
+}
+
+function markTaskComplete(id) {
+  const t = dashboardData.tasks.find(x => x.id === id);
+  if (!t) return;
+  t.status = 'Completed';
+  t.statusClass = 'badge-active';
+  showToast('Task "' + t.title + '" marked as Complete!', 'success');
+  closeModal('taskDetailModal');
+  // Re-render tasks
+  document.getElementById('activeTasksContent').innerHTML = '';
+  renderTasks();
+}
+
+/* ===========================
+   FORM SUBMISSIONS
+=========================== */
+function submitCreateMember() {
+  const name = document.getElementById('cmFullName').value.trim();
+  const email = document.getElementById('cmEmail').value.trim();
+  const role = document.getElementById('cmRole').value;
+  const dept = document.getElementById('cmDept').value;
+  if (!name) { showToast('Please enter a name', 'error'); return; }
+  if (!email) { showToast('Please enter an email', 'error'); return; }
+
+  const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6', '#ec4899'];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+
+  dashboardData.members.push({
+    name: name,
+    joined: new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }),
+    status: 'Active',
+    initials: initials
+  });
+
+  // Update stat
+  const stat = dashboardData.stats.find(s => s.label === 'Active Members');
+  if (stat) { stat.value++; renderStats(); }
+
+  showToast('Member "' + name + '" created successfully!', 'success');
+  closeModal('createMemberModal');
+
+  // Reset form
+  document.getElementById('cmFullName').value = '';
+  document.getElementById('cmEmail').value = '';
+
+  // Re-render member directory
+  document.getElementById('memberDirectoryContent').innerHTML = '';
+  renderMemberDirectory();
+}
+
+function submitAddTask() {
+  const title = document.getElementById('atTitle').value.trim();
+  const desc = document.getElementById('atDesc').value.trim();
+  const assignee = document.getElementById('atAssignee').value.trim();
+  const priority = document.getElementById('atPriority').value;
+  const due = document.getElementById('atDue').value;
+  if (!title) { showToast('Please enter a task title', 'error'); return; }
+
+  const initials = assignee ? assignee.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2) : 'UN';
+  const colors = ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+  const color = colors[Math.floor(Math.random() * colors.length)];
+  const priorityClassMap = { 'High': 'badge-high', 'Medium': 'badge-medium', 'Low': 'badge-low' };
+  const formattedDue = due ? new Date(due).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : 'TBD';
+
+  dashboardData.tasks.push({
+    id: Date.now(),
+    title: title,
+    subtitle: desc ? desc.substring(0, 20) : '',
+    priority: priority,
+    priorityClass: priorityClassMap[priority] || 'badge-medium',
+    dueDate: formattedDue,
+    status: 'Assigned',
+    statusClass: 'badge-active',
+    initials: initials,
+    color: color
+  });
+
+  showToast('Task "' + title + '" created and assigned to ' + (assignee || 'Unassigned'), 'success');
+  closeModal('addTaskModal');
+
+  // Reset form
+  document.getElementById('atTitle').value = '';
+  document.getElementById('atDesc').value = '';
+  document.getElementById('atAssignee').value = '';
+  document.getElementById('atDue').value = '';
+
+  // Re-render tasks
+  document.getElementById('activeTasksContent').innerHTML = '';
+  renderTasks();
+}
+
+function submitAnnouncement() {
+  const title = document.getElementById('annTitle').value.trim();
+  const priority = document.getElementById('annPriority').value;
+  const message = document.getElementById('annMessage').value.trim();
+  if (!title) { showToast('Please enter a title', 'error'); return; }
+  if (!message) { showToast('Please enter a message', 'error'); return; }
+
+  const iconMap = { 'High': '🔴', 'Medium': '📢', 'Low': '📋' };
+  const bgMap = { 'High': '#FEE2E2', 'Medium': '#DBEAFE', 'Low': '#F1F5F9' };
+
+  dashboardData.announcements.push({
+    id: Date.now(),
+    icon: iconMap[priority] || '📢',
+    iconBg: bgMap[priority] || '#DBEAFE',
+    title: title,
+    meta: message.substring(0, 40) + (message.length > 40 ? '...' : '')
+  });
+
+  showToast('Announcement "' + title + '" posted!', 'success');
+  closeModal('announcementModal');
+
+  // Reset form
+  document.getElementById('annTitle').value = '';
+  document.getElementById('annMessage').value = '';
+
+  // Re-render announcements
+  document.getElementById('announcementsContent').innerHTML = '';
+  renderAnnouncements();
+}
+
+function submitReport() {
+  const type = document.getElementById('rptType').value;
+  const from = document.getElementById('rptFrom').value;
+  const to = document.getElementById('rptTo').value;
+  const format = document.getElementById('rptFormat').value;
+  if (!from || !to) { showToast('Please select a date range', 'error'); return; }
+
+  showToast(type + ' Report (' + format + ') is being generated...', 'success');
+  closeModal('reportModal');
+
+  // Simulate report generation
+  setTimeout(() => {
+    showToast(type + ' Report ready for download!', 'success');
+  }, 2000);
 }
 
 /* ===========================

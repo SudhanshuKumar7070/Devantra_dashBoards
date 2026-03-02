@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (sidebarNav) {
       sidebarNav.innerHTML = AppData.navItems.map(function (item) {
         return '<a href="#" class="nav-item' + (item.active ? ' active' : '') + '">' +
-          '<i class="' + item.icon + '"></i>' +
+          '<svg class="ib nav-svg" width="18" height="18"><use href="#' + item.icon + '"/></svg>' +
           '<span>' + item.label + '</span>' +
           '</a>';
       }).join('');
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<span class="stat-value">' + s.value + '</span>' +
           '<span class="stat-label">' + s.label + '</span>' +
           '</div>' +
-          '<div class="stat-icon ' + s.colorClass + '"><i class="' + s.iconClass + '"></i></div>' +
+          '<div class="stat-icon ' + s.colorClass + '"><svg class="ib" width="20" height="20"><use href="#' + s.iconClass + '"/></svg></div>' +
           '</div>';
       }).join('');
 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         '</div>' +
         '<div class="rating-notification">' +
         '<span class="notification-badge">' +
-        '<span class="red-dot"></span> AI notifications <i class="fas fa-chevron-down"></i>' +
+        '<span class="red-dot"></span> AI notifications <svg class="ib" width="12" height="12" style="display:inline-block;vertical-align:middle"><use href="#ic-chevron-down"/></svg>' +
         '</span>' +
         '</div>' +
         '</div>';
@@ -84,8 +84,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (actionRow) {
       actionRow.innerHTML = AppData.actionButtons.map(function (btn) {
         return '<button id="' + btn.id + '" class="btn btn-action ' + btn.colorClass + '">' +
-          '<span><i class="' + btn.icon + '"></i> ' + btn.label + '</span>' +
-          '<i class="fas fa-chevron-right"></i>' +
+          '<span><svg class="ib" width="16" height="16"><use href="#' + btn.icon + '"/></svg> ' + btn.label + '</span>' +
+          '<svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg>' +
           '</button>';
       }).join('');
     }
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         '</div>' +
         '<div class="summary-stat">' +
         '<span class="summary-value">' + ts.onLeave +
-        ' <span class="stat-icon-yellow"><i class="fas fa-user-friends"></i></span>' +
+        ' <svg class="ib" width="16" height="16" style="display:inline-block;vertical-align:middle;color:#f59e0b"><use href="#ic-users"/></svg>' +
         '</span>' +
         '<span class="summary-label">On Leave</span>' +
         '</div>';
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<span class="member-role">' + roleHtml + '</span>' +
           '</div>' +
           '<span class="status-badge status-' + m.status + '">' + m.statusLabel + '</span>' +
-          '<i class="fas fa-chevron-right list-arrow"></i>' +
+          '<svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg>' +
           '</li>';
       }).join('');
     }
@@ -141,12 +141,12 @@ document.addEventListener('DOMContentLoaded', async function () {
       leaveList.innerHTML = requests.map(function (item) {
         return '<li class="leave-box">' +
           '<div class="leave-box-left">' +
-          '<i class="' + item.icon + ' icon-grey"></i>' +
+          '<svg class="ib icon-grey" width="18" height="18"><use href="#' + item.icon + '"/></svg>' +
           '<span>' + item.label + '</span>' +
           '</div>' +
           '<div class="leave-box-right">' +
           '<span class="leave-badge ' + item.badgeClass + '">' + item.count + '</span>' +
-          '<i class="far fa-window-maximize icon-grey"></i>' +
+          '<svg class="ib icon-grey" width="14" height="14"><use href="#ic-chevron-right"/></svg>' +
           '</div>' +
           '</li>';
       }).join('');
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       summaryPills.innerHTML = summary.map(function (pill) {
         if (pill.icon) {
           return '<div class="summary-pill ' + pill.style + '">' +
-            '<i class="' + pill.icon + ' text-secondary"></i>' +
+            '<svg class="ib text-secondary" width="16" height="16"><use href="#' + pill.icon + '"/></svg>' +
             ' <span class="text-secondary">' + pill.label + '</span>' +
             '</div>';
         }
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (!activityList) return;
       activityList.innerHTML = activity.map(function (act) {
         const targetHtml = act.targetIsPill
-          ? '<span class="activity-pill">' + act.target + ' <i class="fas fa-chevron-down"></i></span>'
+          ? '<span class="activity-pill">' + act.target + ' <svg class="ib" width="12" height="12" style="display:inline-block;vertical-align:middle"><use href="#ic-chevron-down"/></svg></span>'
           : act.target;
         return '<li class="activity-item">' +
           '<img src="' + avatarUrl(act.name) + '" alt="" class="avatar avatar-sm">' +
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<span class="activity-text"><strong>' + act.name + '</strong> ' + act.action + ' ' + targetHtml + '</span>' +
           '<span class="activity-time">' + act.time + '</span>' +
           '</div>' +
-          '<i class="fas fa-chevron-right list-arrow"></i>' +
+          '<svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg>' +
           '</li>';
       }).join('');
     }
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       if (!qaWrap) return;
       qaWrap.innerHTML = actions.map(function (qa) {
         return '<button id="' + qa.id + '" class="qa-btn ' + qa.colorClass + '">' +
-          '<i class="' + qa.icon + '"></i> ' + qa.label +
+          '<svg class="ib" width="16" height="16"><use href="#' + qa.icon + '"/></svg> ' + qa.label +
           '</button>';
       }).join('');
     }
@@ -211,7 +211,7 @@ document.addEventListener('DOMContentLoaded', async function () {
           '<span class="task-assignee">' + task.assignee + '</span>' +
           '</div>' +
           dueHtml +
-          '<i class="fas fa-chevron-right list-arrow"></i>' +
+          '<svg class="ib" width="14" height="14"><use href="#ic-chevron-right"/></svg>' +
           '</li>';
       }).join('');
     }
@@ -457,7 +457,20 @@ document.addEventListener('DOMContentLoaded', async function () {
 
   // ── Mobile Sidebar Toggle ──────────────────────────────────
   const sidebar = document.querySelector('.sidebar');
-  window.openSidebar = function () { if (sidebar) sidebar.classList.add('open'); };
-  window.closeSidebar = function () { if (sidebar) sidebar.classList.remove('open'); };
+  const backdrop = document.getElementById('sidebarBackdrop');
+  window.toggleSidebar = function () {
+    if (sidebar) {
+      sidebar.classList.toggle('open');
+      if (backdrop) backdrop.classList.toggle('visible');
+    }
+  };
+  window.openSidebar = function () {
+    if (sidebar) sidebar.classList.add('open');
+    if (backdrop) backdrop.classList.add('visible');
+  };
+  window.closeSidebar = function () {
+    if (sidebar) sidebar.classList.remove('open');
+    if (backdrop) backdrop.classList.remove('visible');
+  };
 
 });
